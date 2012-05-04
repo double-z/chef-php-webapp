@@ -1,0 +1,102 @@
+{
+  "id":                       "php-webapp",
+  "type": {
+    "app_server": [
+                              "apache",
+                              "php",
+                              "memcached"
+    ]
+  },
+  "app_type":                 "php-webapp",
+  "app_lock_dir":             "/root/.LOCK_FILE.d",
+  "mysql": {
+    "with_mysql":             true,
+    "app_db_name":            "php-webapp",
+    "mysql_version":          "mysql5",
+    "install_method":         "yum",
+    "install_name":           "mysql",
+    "socket_location":        "/tmp/mysql.sock",
+    "replication_role":       "master"
+  },
+  "memcached": {
+    "with_memcached":         true,
+    "memory":                 "512",
+    "port":                   "11211",
+    "user":                   "nobody",
+    "maxconn":                "512",
+    "listen":                 ""
+  },
+  "apache": {
+    "www_root":               "/var/www",
+    "with_apache":            true,
+    "with_ssl":               false,
+    "enable_module": [
+
+    ],
+    "disable_module": [
+
+    ]
+  },  
+  "php": {
+    "locked":                 true,
+    "unlocked":               true,
+    "php_version":            "php53",
+    "install_method":         "package",
+    "packages": [
+                              "php53-mcrypt",
+                              "php53-ldap"
+    ],
+    "unused_modules": [
+    
+    ],
+
+    "with_memcache":          true,
+    "memcache_version":       "2.2.6",
+    "with_apc":               true,
+    "apc_version":            "3.1.9",
+    "apc_options": [
+      { "option":             "memcache" },
+      { "option":             "memcache" }
+    ],
+    "ini": [
+      { "module":             "memcache" },
+      { "module":             "mysqli",
+        "option":             "setting"
+      }
+    ],
+    "install_modules": [
+                               
+    ],
+    "disable_modules": [
+
+    ]
+  },
+  "server_roles": [
+                              "application specific role(s), typically the name of the app, e.g., APP_NAME",
+                              "php-webapp_app"
+  ],
+  "vhosts": [
+      { "server_name":        "vhost",
+        "server_aliases": [
+                              "alias1",
+                              "alias2"
+        ],
+        "deploy_root":        "/var/www/php-webapp",
+        "doc_root":           "/var/www/php-webapp/current/",
+        "with_ssl":           false,
+        "is_enabled":         true,
+        "is_default":         false
+      },
+      { "server_name":        "vhost2",
+        "server_aliases": [
+                              "alias1",
+                              "alias2"
+        ],
+        "deploy_root":        "/var/www/php-webapp2",
+        "doc_root":           "/var/www/php-webapp2/current/public",
+        "with_ssl":           false,
+        "is_enabled":         true,
+        "is_default":         false
+      }
+    ]
+}
