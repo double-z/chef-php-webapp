@@ -1,0 +1,33 @@
+{
+  "providing": {
+  },
+  "license": "All rights reserved",
+  "name": "php-webapp",
+  "suggestions": {
+  },
+  "description": "Installs/Configures template-app",
+  "dependencies": {
+    "apache2": ">= 0.0.0",
+    "logrotate": ">= 0.0.0",
+    "php": ">= 0.0.0",
+    "memcached": ">= 0.0.0"
+  },
+  "version": "0.0.1",
+  "recipes": {
+  },
+  "groupings": {
+  },
+  "recommendations": {
+  },
+  "attributes": {
+  },
+  "replacing": {
+  },
+  "maintainer_email": "YOUR_EMAIL",
+  "conflicting": {
+  },
+  "platforms": {
+  },
+  "maintainer": "YOUR_COMPANY_NAME",
+  "long_description": "Description\n===========\n\nRequirements\n============\n\nneeds local ip defined for each app -gamenutt for now- in hosts file\ndomain.local in dev\ndomain.com for staging/prod\n\nAttributes\n==========\n\nUsage\n=====\n\n"
+}
