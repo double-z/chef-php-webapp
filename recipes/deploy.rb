@@ -6,28 +6,13 @@
 #
 
 #==================================================================
-# ASSIGN ROLE ATTRIBUTES TO VARS
-#==================================================================
-  
-  # "ec2 || cloudstack || rackspace || openstack"
-  cloud                                               = node['cloud_platform']           ?  node['cloud_platform']             : nil
-  # "private || public"
-  pub_or_priv                                         = node['pub_or_priv']              ?  node['pub_or_priv']                : nil
-  # "biz_unit1 || biz_unit2 || biz_unit3"
-  biz_unit                                            = node['biz_unit']                 if node['biz_unit']
-  # "dev || qa || staging || prod"
-  stage                                               = node['stage']                    if node['stage']
-  # "local || ec2 East 1a || rackspace "
-  datacenter                                          = node['datacenter']               if node['datacenter']
-
-#==================================================================
 # LOAD DATA BAG and Assign Vars 
 #==================================================================
 
-  deployment_id                                        = node['deployment_id']
-  cookbook                                             = node['cookbook_name']
-  app                                                  = data_bag_item('webapps', deployment_id)
-  app_type                                             = app['app_type']
+  deploy_id                                            = example #node['deployment_id']
+  cookbook                                             = example #node['cookbook_name']
+  app                                                  = data_bag_item('webapps', deploy_id)
+  app_type                                             = example #app['app_type']
 
 #==================================================================
 # Apache
